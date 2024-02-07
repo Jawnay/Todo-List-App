@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Cors = require('cors')
+const cors = require('cors')
 const dotenv = require('dotenv')
 
 dotenv.config()
@@ -26,7 +26,7 @@ const connectionURL = process.env.MONGO_URI
 // Convert to json
 app.use(express.json())
 
-app.use(Cors())
+app.use(cors())
 
 // DB Config
 mongoose.connect(connectionURL)
