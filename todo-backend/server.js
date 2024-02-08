@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const cron = require('node-cron'); // Import node-cron
+const Todos = require('./dbTodos');
 
 dotenv.config();
 
@@ -33,6 +34,8 @@ mongoose.connect(connectionURL)
             try {
                 // Perform your database interaction here
                 console.log("Running database interaction...");
+                const result = await Todos.find({});
+                console.log("Todos:",result);
                 // For example, you can call a function from your controller
                 // await performDatabaseInteraction();
             } catch (error) {
